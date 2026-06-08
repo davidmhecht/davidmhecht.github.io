@@ -1,0 +1,500 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  line-height: 1.7;
+  background: var(--color-background-tertiary);
+}
+
+header {
+  background: var(--color-background-primary);
+  border-bottom: 1px solid var(--color-border-tertiary);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+header p {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+}
+
+nav {
+  background: var(--color-background-primary);
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border-tertiary);
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.25rem;
+  transition: border-color 0.2s;
+}
+
+nav a:hover {
+  border-bottom-color: var(--color-border-primary);
+}
+
+nav a.active {
+  border-bottom-color: var(--color-text-primary);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+section {
+  display: none;
+  padding: 3rem 1rem;
+  animation: fadeIn 0.3s ease-in;
+}
+
+section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hero {
+  background: var(--color-background-secondary);
+  padding: 3rem 1.5rem;
+  border-radius: var(--border-radius-lg);
+  margin-bottom: 2rem;
+}
+
+.hero h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
+.hero p {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.8rem;
+}
+
+.research-focus {
+  background: var(--color-background-secondary);
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--color-border-primary);
+}
+
+.research-focus h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
+.research-focus p {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.8rem;
+}
+
+.project-card {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-card h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.project-card .location {
+  font-size: 13px;
+  color: var(--color-text-tertiary);
+  margin-bottom: 1rem;
+}
+
+.project-card p {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  padding: 0.8rem;
+  background: var(--color-background-tertiary);
+  border-radius: var(--border-radius-md);
+}
+
+.publication {
+  background: var(--color-background-secondary);
+  border-left: 3px solid var(--color-border-secondary);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--border-radius-md);
+}
+
+.publication h4 {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.publication .meta {
+  font-size: 13px;
+  color: var(--color-text-tertiary);
+  margin-bottom: 0.8rem;
+}
+
+.publication p {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.award {
+  background: var(--color-background-secondary);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius-md);
+}
+
+.award h4 {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  color: var(--color-text-primary);
+}
+
+.award p {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.partners {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.partner {
+  background: var(--color-background-secondary);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border-tertiary);
+}
+
+.partner h4 {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.partner p {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.contact-section {
+  background: var(--color-background-secondary);
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+}
+
+.contact-section h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+}
+
+.contact-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 0.8rem 1.2rem;
+  background: var(--color-background-tertiary);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border-tertiary);
+  transition: border-color 0.2s;
+}
+
+.contact-links a:hover {
+  border-color: var(--color-border-primary);
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: var(--color-text-primary);
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 600px) {
+  nav {
+    gap: 1rem;
+  }
+  
+  .highlights, .partners {
+    grid-template-columns: 1fr;
+  }
+  
+  header h1 {
+    font-size: 22px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>David Hecht, PhD</h1>
+  <p>Conservation social scientist | Environmental anthropologist | Community-based conservation</p>
+</header>
+
+<nav>
+  <a class="nav-link active" onclick="showSection('about')">About & Research</a>
+  <a class="nav-link" onclick="showSection('projects')">Fieldwork & Projects</a>
+  <a class="nav-link" onclick="showSection('publications')">Publications</a>
+  <a class="nav-link" onclick="showSection('impact')">Impact & Recognition</a>
+  <a class="nav-link" onclick="showSection('contact')">Contact</a>
+</nav>
+
+<div class="container">
+
+<!-- ABOUT SECTION -->
+<section id="about" class="active">
+  <div class="hero">
+    <h2>Research focus</h2>
+    <p>I explore the intersection of lived religion, cultural knowledge systems, and species conservation in community-based protected areas. My work integrates anthropological and ecological approaches to understand how local spiritual practices, territorial deities, and place-based ontologies shape conservation outcomes and environmental stewardship.</p>
+  </div>
+
+  <div class="research-focus">
+    <h3>Research interests</h3>
+    <p><strong>Thematic areas:</strong> Community-based conservation, anthropology of sacred landscapes, ethnobiology and traditional ecological knowledge, more-than-human ontologies, environmental anthropology, applied conservation ethics.</p>
+    <p><strong>Methods:</strong> Participatory cultural mapping, collaborative ethnography, adaptive management, integrated conservation and development.</p>
+    <p><strong>Geographic focus:</strong> Eastern Himalayas, with primary research in Bhutan and experience in East African conservation contexts.</p>
+  </div>
+
+  <h2>Background</h2>
+  <p style="margin-bottom: 1.5rem;">PhD in Integrative Conservation & Anthropology, University of Georgia (2022) | BA in Anthropology & Biology, Luther College (2011)</p>
+  <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">I combine disciplinary depth in sociocultural anthropology with integrated conservation science to develop innovative, culturally-grounded solutions to conservation challenges. My research prioritizes community partnerships, local knowledge, and the recognition of spiritual and relational dimensions of environmental stewardship.</p>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects">
+  <h2>Fieldwork & projects</h2>
+
+  <div class="project-card">
+    <h3>Black-necked crane & white-bellied heron conservation in Bhutan</h3>
+    <p class="location">South-central Bhutan, high-altitude wetland communities</p>
+    <p>Long-term collaborative research examining how local protective deities (yul lha, gzhi bdag) and spiritual beliefs govern conservation practices and community stewardship in critical wintering habitats for endangered migratory species. Research involves participatory cultural mapping with wetland communities and the Royal Society for Protection of Nature (RSPN).</p>
+    <div class="highlights">
+      <div class="highlight"><strong>Partner:</strong> Royal Society for Protection of Nature (RSPN), Bhutan</div>
+      <div class="highlight"><strong>Funder:</strong> National Geographic Society Young Explorers</div>
+      <div class="highlight"><strong>Methods:</strong> Participatory mapping, ethnography, collaborative documentation</div>
+      <div class="highlight"><strong>Impact:</strong> Informs adaptive protected area management and community conservation programs</div>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <h3>Mapping more-than-human worlds of conservation in Bhutan</h3>
+    <p class="location">Kingdom of Bhutan, protected areas</p>
+    <p>Integrative cultural mapping project documenting local knowledge of Bhutanese landscapes and foregrounding ontological relationships between protective territorial deities and human communities. Uses collaborative methods and Himalayan Buddhist-inspired visual documentation to center lived religion in conservation planning.</p>
+    <div class="highlights">
+      <div class="highlight"><strong>Approach:</strong> Indigenous and Buddhist ontologies in conservation</div>
+      <div class="highlight"><strong>Collaborator:</strong> Contemporary artist Gyempo Wangchuk</div>
+      <div class="highlight"><strong>Funder:</strong> Firebird Foundation for Anthropological Research</div>
+      <div class="highlight"><strong>Output:</strong> Dissertation research, conference presentations, digital documentation</div>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <h3>Citadels of conservation: Protected species and protective deities in Bhutan</h3>
+    <p class="location">Eastern Himalayas, Bhutan</p>
+    <p>Doctoral research investigating the role of spiritual practices, protective deities, and sacred landscapes in shaping conservation policy and community participation. Examines how "citadels of the deity" — places imbued with spiritual significance and social prohibitions — influence protected area management and environmental integrity.</p>
+    <div class="highlights">
+      <div class="highlight"><strong>Key finding:</strong> Spiritual beliefs are operative forces in conservation outcomes</div>
+      <div class="highlight"><strong>Application:</strong> Advances integrative conservation practice in Buddhist-majority contexts</div>
+      <div class="highlight"><strong>Significance:</strong> Offers model for culturally-grounded protected area management</div>
+      <div class="highlight"><strong>Status:</strong> Completed PhD dissertation (2022)</div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS SECTION -->
+<section id="publications">
+  <h2>Publications & presentations</h2>
+
+  <div class="publication">
+    <h4>Mapping more-than-human worlds of conservation in Bhutan</h4>
+    <p class="meta">Presented at: Royal Anthropological Institute Conference (RAI 2021), 4th International Vajrayāna Buddhism Conference (2022)</p>
+    <p>Peer-reviewed presentations on participatory cultural mapping methodologies and ontological dimensions of conservation in protected areas.</p>
+  </div>
+
+  <div class="publication">
+    <h4>Collaborative watershed mapping and white-bellied heron conservation in south-central Bhutan</h4>
+    <p class="meta">National Geographic Society Young Explorers Grant project (2016–ongoing)</p>
+    <p>Applied research integrating community-based mapping with species conservation and watershed management in high-altitude Bhutanese communities.</p>
+  </div>
+
+  <div class="publication">
+    <h4>Book review: Birds of Bhutan and the Eastern Himalayas</h4>
+    <p class="meta">Published in Ibis, 2020</p>
+    <p>Scholarly review evaluating field guide for ornithological research and conservation practice in the region.</p>
+  </div>
+
+  <div class="publication">
+    <h4>Community-based conservation and lived religion in the Eastern Himalayas</h4>
+    <p class="meta">Forthcoming chapters and articles from doctoral research</p>
+    <p>Peer-reviewed publications advancing theory and practice in integrative conservation anthropology.</p>
+  </div>
+</section>
+
+<!-- IMPACT SECTION -->
+<section id="impact">
+  <h2>Recognition & impact</h2>
+
+  <div class="award">
+    <h4>2026 Young Alumni Award</h4>
+    <p>Luther College. Recognition for outstanding achievements in conservation social science. Commencement speaker, May 2026.</p>
+  </div>
+
+  <div class="award">
+    <h4>Firebird Foundation Fellowship</h4>
+    <p>Traditional knowledge documentation project: "Protective Deities, Protected Beings: Mapping Traditional Ecological Knowledge of Deity Citadels in Bhutan."</p>
+  </div>
+
+  <div class="award">
+    <h4>National Geographic Society Young Explorers Grant</h4>
+    <p>2016. Awarded for innovative approach to collaborative watershed mapping and endangered species conservation.</p>
+  </div>
+
+  <div class="award">
+    <h4>Graduate research funding</h4>
+    <p>International Graduate Student Travel Grant, Center for Integrative Conservation Research, Anthropology Department (multiple awards).</p>
+  </div>
+
+  <h2 style="margin-top: 2rem;">Key partnerships</h2>
+  
+  <div class="partners">
+    <div class="partner">
+      <h4>Royal Society for Protection of Nature (RSPN)</h4>
+      <p>Long-term research partnership in Bhutan on community-based avian conservation and protected area management.</p>
+    </div>
+    <div class="partner">
+      <h4>University of Georgia</h4>
+      <p>ICON PhD program and Center for Integrative Conservation Research. Collaborative research and mentoring.</p>
+    </div>
+    <div class="partner">
+      <h4>Luther College</h4>
+      <p>Baccalaureate institution. Ongoing engagement with undergraduate mentorship and commencement keynoting.</p>
+    </div>
+    <div class="partner">
+      <h4>Himalayan communities & local artists</h4>
+      <p>Community-based research partners in Bhutan. Collaborative knowledge documentation and cultural mapping.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <div class="contact-section">
+    <h3>Get in touch</h3>
+    <p style="margin-bottom: 1.5rem; color: var(--color-text-secondary);">I'm interested in collaborative research, funding opportunities, and partnerships in conservation social science. Please reach out with inquiries about project collaboration, speaking engagements, or consultation on integrative conservation approaches.</p>
+    
+    <div class="contact-links">
+      <a href="mailto:dhecht@uga.edu">Email</a>
+      <a href="https://uga.academia.edu/DavidHecht" target="_blank">Academia.edu</a>
+      <a href="https://anthropology.uga.edu/" target="_blank">UGA Anthropology</a>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem; padding: 1.5rem; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); text-align: center;">
+    <p style="font-size: 13px; color: var(--color-text-secondary);">Conservation social scientist | Anthropological researcher | Community-based conservation practitioner</p>
+  </div>
+</section>
+
+</div>
+
+<script>
+function showSection(sectionId) {
+  // Hide all sections
+  const sections = document.querySelectorAll('section');
+  sections.forEach(section => section.classList.remove('active'));
+  
+  // Remove active from nav links
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => link.classList.remove('active'));
+  
+  // Show selected section
+  document.getElementById(sectionId).classList.add('active');
+  
+  // Add active to clicked nav link
+  event.target.classList.add('active');
+  
+  // Scroll to top
+  window.scrollTo(0, 0);
+}
+</script>
+
+</body>
+</html>
